@@ -406,7 +406,7 @@ CognomeEONomeIntellettuale ::=
       |     \\ezio \\mauro
       |     (\\fedez| \\fed\\ex) 
       |     \\ilvo \\diamanti
-      |     \\massimo \\damilano
+      |     \\marco \\damilano
       |     \\massimo \\giannini
       |     \\mauro \\biani
       |     \\michele \\serra
