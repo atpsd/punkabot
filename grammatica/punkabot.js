@@ -357,7 +357,7 @@ Conclusione ::=
           | non c'^"&egrave" (critica| Concetto.Negativo | guerra AlConcetto.Positivo ) che tenga
           | non veniteci a raccontare il contrario
           | chi (lo nega|lo omette) o "&egrave" (un falso|stupido|fuori dal mondo|un retrogrado) o "&egrave" (un finto tonto|in malafede|in contraddizione|[intellettualmente]disonesto)
-          | chi ((sostiene|afferma) il contrario|non "&egrave" d'accordo|la pensa(diversamente|in un altro modo)|non la pensa(cosi'|in questo modo)) 
+          | chi ((sostiene|afferma) il contrario|non "&egrave" d'accordo|la pensa(diversamente|in un altro modo)|non la pensa(cosi"&igrave"|in questo modo)) 
                 ("&egrave" un noncompagno|
                   non ha capito niente 
                   [della vita|di come va il mondo|di come vanno le cose|dell'\\italia|di questo paese|di questa societ^"&agrave"|della societ^"&agrave" civile|della temperie sociale[in cui ci troviamo]|della deriva antropologica in corso])
