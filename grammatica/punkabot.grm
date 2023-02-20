@@ -1,16 +1,28 @@
-I ::=   "title:    PunkaBot v.2\n"
+I ::=   "title:    PunkaBot v.3\n"
       ^ "author:   fb.me/atpsd - archivefever.tk@gmail.com \n"
       ^ "language: italian \n"
       ^ "status:   refinable \n"
       ^ "topic:    politics \n"
       ^ "comment:  generatore di frasi per conquistare bellissime punkabbestia \n"
       ^ "warning:  dice solo sincere verita' \n"
-      ^ "created:  13/02/2023"
+      ^ "created:  20/02/2023"
 ;
 
 
-
-
+(* TO DO LIST 
+- concetti: dividere tra Valori - Oggetti - Status Symbol etc
+- giornali di destra e sinistra
+- nomi nomi di associazioni con data random
+- nomi occasioni di incontro con presentazioni di libri o scrittori
+– frase sei bella come l'anti-fascismo-melonismo-sovranismo etc
+– frasi sul PunkaBot stesso o pubblicita'-concorrenza nei confronti degli altri bot in generale
+– nomi nemici e amici ideologici
+– nomi di discipline, titoli di studio, campi di ricerca, etc
+– nomi di trasmissioni televisive
+- nomi di influencer inventati Lo Zappa il Turacciolo etc
+– complimento diretto alla punkabbestia
+– pagine facebook cooptate
+*)
 
 (************************************)
 (*************** FRASE **************)
@@ -18,121 +30,348 @@ I ::=   "title:    PunkaBot v.2\n"
 
 
 S ::= \ 
-      (
-        Frase01 | Frase02 | Frase03 | Frase04 | Frase05 
-      ) ^"."
+      >>(
+        (* >>Frase08<<  *)
+        Frase01 | Frase02 | Frase03 | --Frase04 | Frase05 | +++Frase06 | ++Frase07 | Frase08
+
+
+      )<< ^"."
       ;
 
 
-Frase01 ::= \       
+(* Frase 08 sei bella come ---ismo *)
+Frase08 ::= \       
       (
-        Abolire ::=   (
-                        denunciare|distruggere|togliere di mezzo|dimenticarci[una volta per tutte]|mandare a casa|far fuori|eliminare|sgomberare|abolire|cancellare|marginalizzare|mettere ai margini|estromettere[dal consesso civile|dalla societa'|dal discorso pubblico]|ridicolizzare|sopprimere|delegittimare|sconfiggere
-                      ) 
-                      ; 
 
-        Sostenere ::= (
-                      realizzare[pienamente|finalmente|una volta per tutte]|legittimare|sdoganare|affermare|portare in essere|rendere possibile|concretizzare|reificare|far trionfare|far vincere|twittare [su \facebook]|-------far impazzare sui social|------far comparire sui giornali[della cosiddetta "Italia"]
-                      )
-                      ;
+      SuUnMuro ::= su un (muro|portone|muretto) | su una (parete|facciata|vetrata) | su una persiana; 
+      SulMuro ::= sul (muro|portone|muretto) | sulla (parete|facciata|vetrata) | sulle persiane; 
+      SuUnMezzoDiTrasporto ::= su un (treno[regionale[veloce]]|camion|\t^\i^\r|autoarticolato) |su un'auto [abbandonata|presa a rate|non di lusso|con l'adesivo baby onboard]| su un'autobotte | su un vagone della metro [di \roma|di \milano|della \milano di \sala|all'estero]; 
+      Sbombolettato ::= sbombolettato|taggato|inciso|graffitato|pennellato|pirografato|scolpito; 
 
-        LUnicoModo ::= (
-                      l'unica (via|prospettiva[possibile]|possibilita'|speranza)|l'unico (modo|strumento(possibile|che abbiamo a disposizione))
-                      )
-                      ;
+SuUnLuogo ::=
+            (
+            SuUnMuro [altrui|a casaccio|scelto a caso|come tutti gli altri|anonimo|di periferia|del centro]
+          | SulMuro di (un \c^\o^\m^\p^\r^\o \o^\r^\o|una (chiesa|cattedrale|parrocchia)|un panificio|una caserma[dei \carabinieri|della \guardia di \finanza|dell'^\esercito[\italiano]|dell'^\aviazione]|una pasticceria|un benzinaio|una rosticceria|un'universita'[occupata]|una scuola(elementare|media)|un liceo|un'isola ecologica|un kebabbaro|una sede (dell'^\agenzia delle \entrate|dell'^\a^\n^\p^\i|dell'^\a^\n^\c^\i|dell'^\a^\c^\l^\i))
+          | SulMuro (di casa (della tua ex|tua|di tua (mamma|zia|nonna|sorella|cognata|figlia|moglie))|del tuo (condominio|ufficio|garage|casotto degli attrezzi|box auto|appartamento))
+          | --sulla casetta del tuo cane [pitbull]
+          | SuUnMezzoDiTrasporto [in fiamme|_|_]
+          | SulMuro di (un ex^"-"^brigatista[ormai (in liberta' vigilata|ai domiciliari|[perfettamente] reintegrato nella societa'|talvolta intervistato in tv)]|un rifugiato politico|un compagno imbianchino|un richiedente asilo|un [fratello]migrante|un povero|un indigente|uno squattrinato|un esodato|un pensionato|una massaia|un trappatore)
+          | (sul graffito|sul murales|sull'opera) di un altro (vandalo|writer|(artista|imbianchino) di strada|street artist|\banksy mancato)
 
-      {Abolire IlConcetto.Negativo | Sostenere IlConcetto.Positivo  } 
-      e' 
-      {LUnicoModo per (Sostenere IlConcetto.Positivo | Abolire IlConcetto.Negativo)}
+            ) 
+            ; 
+
+            (
+
+            (SeiBella:
+          \s^\e^\i (\b^\e^\l^\l^\a|\g^\n^\o^\c^\c^\a|\n^\o^\n^\b^\r^\u^\t^\t^\a|\a^\v^\v^\e^\n^\e^\n^\t^\e|\p^\i^\a^\c^\e^\n^\t^\e|\s^\e^\x^\y|\m^\o^\z^\z^\a^\f^\i^\a^\t^\o|\b^\o^\n^\a|\f^\r^\e^\g^\n^\a) 
+          | NonSeiBrutta: \n^\o^\n \s^\e^\i [\c^\e^\r^\t^\o] \b^\r^\u^\t^\t^\a
+            )
+
+        \c^\o^\m^\e 
+
+       ( SeiBella: \l'^\a^\n^\t^\i^ | NonSeiBrutta: \i^\l )
+
+        (\t^\o^\t^\a^\l^\i^\t^\a^\r|\m^\e^\l^\o^\n|\f^\a^\s^\c|\p^\a^\p|\n^\i^\c^\h^\i^\l|\b^\e^\r^\l^\u^\s^\c^\o^\n|\g^\r^\i^\l^\l|\r^\e^\n^\z|\r^\a^\z^\z|\n^\a^\z|\c^\o^\n^\s^\e^\r^\v^\a^\t^\o^\r|\l^\e^\g^\h|\s^\a^\l^\v^\i^\n|\b^\o^\o^\m^\e^\r|\l^\a^\v^\o^\r|\s^\o^\v^\r^\a^\n|\p^\r^\o^\i^\b^\i^\z^\i^\o^\n|\s^\e^\s^\s|\l^\i^\b^\e^\r)^\i^\s^\m^\o 
+            ).(SeiBella|NonSeiBrutta)
+
+        ^"\n"
+
+        "("^
+            (Sbombolettato [a sfregio|ostinatamente[nonostante varie (cancellazioni|denunce[verso ignoti])]|piu' [e piu'] volte [senza motivo]|senza motivo|senza preavviso] SuUnLuogo 
+            | --Sbombolettato (ovunque|a caso|su un monumento)
+            | tatuato (su|sul (braccio|bicipite|gluteo|polpaccio) di|sulla (coscia|gamba|faccia|spalla|schiena|fronte|nuca|mano)di) (un punkabbestia|una [bellissima]punkabbestia)
+            | ----{[stranamente|contro ogni(previsione|probabilita'|pronostico)]}{Sbombolettato} su un muro libero
+            | esposto in una galleria d'arte [a (\londra|\new \york|\dallas|\firenze|\busto \arsizio|\milano|\torino|\palermo|\civitavecchia|\termoli|\gallarate|\rho|\brescia|\bologna|\belluno)]
+            | -in copertina su (un inserto culturale|un giornalino universitario|un settimanale di nondestra|un mensile[di giardinaggio|sulle barche di lusso|automobilistico])
+            | ----scritto nel bagno di un bar [antagonista]
+            | ----a tutto schermo sul sito defacciato di (un alimentari|un'autorimessa|un blog di videogiochi|un ricettario online|una escort|un mercatino dell'usato|un gruppetto musicale|un giornalino locale|un ristorante|un bnb|un negozio di telefonia|un supermercato|un commercialista|un avvocato|una dog sitter)
+            | -----pubblicato da questo stesso \punka^\bot
+            | Sbombolettato ((sul cofano|sul tettuccio|sulla fiancata|sul parabrezza[impolverato]|sul lunotto) della tua auto|sul (serbatoio[appena customizzato]|parafango|sedile[in pelle]) della tua moto) 
+            | Sbombolettato da un writer eroe SulMuro di un palazzo [semidistrutto] (ad \aleppo|in \siria|in \ucraina|in una zona di guerra|in una zona bombardata in \medioriente)  
+            | impresso sui (megaschermi|fondali) in studio a (\piazzapulita|\propaganda \live|\l'aria che tira|\in mezz'ora|\otto e mezzo|\dimartedi'|\maratona \mentana)
+            | proiettato [illegalmente|clandestinamente|in occasione di un'iniziativa di strada|da alcuni punkabbestia] su un palazzo [storico|della \provincia|della \regione]
+            | riscritto [senza alcuna retorica|per arginare IlConcetto.Negativo] (dal vignettista|dall'illustratore|dal satiraio|dal bozzettista|dall'intellettuale) (satirico|in servizio permanente effettivo|indipendente|non cooptato) di un (quotidiano|settimanale|periodico|quindicinale) (impegnato|non fascista|di buonsenso|a favore DelConcetto.Positivo|che si oppone AlConcetto.Negativo)
+
+
+            )
+        ^")"
 
       )
       ;
 
 
 
-              (* SENZA VERA... *)
-Frase02 ::= \       
+
+
+(* Frase 07 discrimina tra concetti maschili e femminili - nominalismo *)
+Frase07 ::= \       
       (
-      senza (Concetto| ------cultura DelConcetto).Positivo non c'e'
-        (   vero ConcettoNome.M.(IlI|LGli|--------------LoGli)
-          | vera ConcettoNome.F.(LLe|++++++++LaLe)
-         ).S.Positivo
+        UnaParolaDiGenereBase := 
+            ( 
+                ((una parola|un termine|un vocabolo|un'espressione|-----un lemma|-------un polisillabo) [di (genere|gender)|al])
+            ) 
+            ;
 
-      |
+        UnaParolaDiGenere ::= 
+            (
+                UnaParolaDiGenereBase (M: maschile | F:femminile) 
+            )
+            ;
 
-      senza (Concetto non c'e' vera cultura DelConcetto).Positivo
+        CoincidenzeNonCredo ::=
+            (
+                  coincidenze^"?" \non credo
+                | ((non c'e' nulla|non mi sembra [che] ci sia nulla) di cui|(nulla di che|non c'e' da|non c'e' di che)) stupirsi
+                | e la storia si ripete
+                | e nessuno fa niente
+                | la cosa non mi stupisce
+                | e non e' ([solo] un caso[fortuito|sfortunato]|una coincidenza|una [mera]casualita')
+                | ed ecco servito IlConcettoMaschile.Negativo (signori|signore e signori|cari miei|amici all'ascolto|telespettatrici e telespettatori|spettatrici e spettatori) 
+                | nulla di piu' (scontato|naturale|normale)
+                | ogni riferimento a (++++cose e persone|fenomeni|problemi sociali) realmente esistenti e' puramente (intenzionale|casuale)
+                | piove sul bagnato
+            )    
+            ;
 
-      )
-      ;
+        EQuestoLaDiceLunga ::= 
+            (
+                [e] gia' questo la dice lunga
+              | (ripartiamo dal|ascoltiamo il|studiamo il) linguaggio
+              | [e questo] non puo' essere un caso [fortuito]  
+              | [molto] probabilmente non e' [solo] una coincidenza 
+              | causa ed effetto 
+              | dovremmo (stabilire(una connessione|un legame forte|un legame d'empatia)) (con il linguaggio|con la lingua[italiana]|con le parole che usiamo [ogni giorno|[nella vita di]tutti i giorni|quotidianamente]) 
+              | dovremmo fare piu' attenzione (al linguaggio|alla lingua[italiana]|alle parole che usiamo [ogni giorno|[nella vita di]tutti i giorni|quotidianamente])
+              | e credo ci sia un motivo [se le cose stanno cosi']
+              | e non (c'e'|credo ci sia) nulla di piu' naturale  
+              | e questo non e' certo un complotto [mondiale|mondialista|internazionale]  
+              | e' (dal linguaggio|dalla lingua[italiana]) che bisogna ripartire
+              | guarda le coincidenze alle volte
+              | il (dizionario|vocabolario) [\zanichelli|\treccani|\hoepli|\zingarelli|\devoto \oli|dell'^\accademia \della \crusca|\de \mauro] non mente
+              | la nostra lingua (ci da' dei segnali|vuole dirci qualcosa|non va ignorata)
+              | mi stupirei del contrario
+              | non (fingiamo|facciamo finta|illudiamoci|credo[proprio]) che sia (una coincidenza|soltanto un caso|un caso fortuito)
+              | non so perche' ma la cosa non mi (stupisce|sorprende|meraviglia|sconvolge) [affatto|per niente|nemmeno un po'|neanche un po']
+              | se (tutti|molti|(gli|i migliori) esperti) l'hanno notato (un motivo|una ragione) ci sara'
+            )
+            ;   
 
+        EIrrilevante ::=
+            (
+                  e' irrilevante
+                | e' solo (una coincidenza|un caso fortuito|una [mera]casualita' senza alcun (senso|nesso con la realta'))
+                | non c'entra ([assolutamente]niente|un beneamato|un piffero)
+                | e' un caso senza alcuna (base|rilevanza|risultanza|attinenza) (scientifica|storiografica|linguistica|etimologica|antropologica)
+                | non ([mi]rappresenta|significa) niente
+                | non ha alcuna attinenza [con la realta'|con i problemi reali[che interessano agli italiani]]
+                | e' qualcosa che (fanno notare|tirano fuori|sottolineano|ripetono|twittano) solo (gli ottenebrati|gli stupidi|i minus habens|gli analfabeti(funzionali|emotivi|di ritorno))
 
+            )    
+            ;
 
+        non a caso {IlConcettoMaschile.Negativo e' UnaParolaDiGenere.M} ^"," mentre {IlConcettoFemminile.Positivo e' UnaParolaDiGenere.F}
+      | non a caso {"\""^ConcettoMaschile.Negativo^"\"" e' UnaParolaDiGenere.M} ^"," mentre {"\""^ConcettoFemminile.Positivo^"\""  e' UnaParolaDiGenere.F}
 
-
-
-
-
-
-Frase03 ::= \ 
-      (
-
-      (* 1 - Permutazione con "cultura di" Concetto *)
-      (IlConcetto| ------la cultura DelConcetto).Negativo non e' Concetto.Positivo ^"," e' Concetto.Negativo
-      |
-
-      IlConcetto.Negativo non e' (Concetto| ------cultura DelConcetto).Positivo ^"," e' Concetto.Negativo
-      |
-
-      IlConcetto.Negativo non e' Concetto.Positivo ^"," e' (Concetto| ------cultura DelConcetto).Negativo
-      |
-
-      (* inversione Negativo Positivo *)
-      (IlConcetto| ------la cultura DelConcetto).Positivo non e' Concetto.Negativo ^"," e' Concetto.Positivo
-      |
-
-      IlConcetto.Positivo non e' (Concetto| ------cultura DelConcetto).Negativo ^"," e' Concetto.Positivo
-      |
-
-      IlConcetto.Positivo non e' Concetto.Negativo ^"," e' (Concetto| ------cultura DelConcetto).Positivo
-      |
-
-
-
-      (* 2 - Permutazione con "guerra a" Concetto*)
-
-      (la guerra AlConcetto).Positivo non e' Concetto.Positivo ^"," e' Concetto.Negativo
-      |
-      IlConcetto.Positivo non e' (guerra AlConcetto).Positivo ^"," e' Concetto.Positivo
-      |
-      IlConcetto.Negativo non e' Concetto.Positivo ^"," e' (guerra AlConcetto).Positivo
-      |
-
-      (la guerra AlConcetto).Negativo non e' Concetto.Negativo ^"," e' Concetto.Positivo
-      |
-      IlConcetto.Negativo non e' (guerra AlConcetto).Negativo ^"," e' Concetto.Negativo
-      |
-      IlConcetto.Positivo non e' Concetto.Negativo ^"," e' (guerra AlConcetto).Negativo
+      |  non e' un caso che IlConcettoMaschile.Negativo sia UnaParolaDiGenere.M ^"," mentre IlConcettoFemminile.Positivo e' UnaParolaDiGenere.F
+      |  non e' un caso che IlConcettoFemminile.Positivo sia UnaParolaDiGenere.F ^"," mentre IlConcettoMaschile.Negativo e' UnaParolaDiGenere.M
       
+      |  [guardacaso]IlConcettoMaschile.Negativo e' maschio mentre IlConcettoFemminile.Positivo e' femmina^"." \ CoincidenzeNonCredo
+
+      | UnaParolaDiGenere.M a (caso|-----random)^"?" "\""^\ConcettoMaschile.Negativo^"\"" ^"." \ CoincidenzeNonCredo
+      | "\""^ \ConcettoFemminile.Positivo^"\"" e' UnaParolaDiGenere.F^"." \ EQuestoLaDiceLunga
+      | che "\""^ConcettoFemminile.Negativo^"\"" sia UnaParolaDiGenere.F EIrrilevante (^"," EIrrilevante)+ ^"," Conclusione
       )
       ;
 
 
 
 
-
-Frase04 ::= \ 
+Frase06 ::= \       
       (
+        SeguoSempre ::=   (
+                      seguo [sempre]
+                    | apprezzo molto
+                    | ascolto [ogni volta che ( posso|mi capita|mi e' possibile ) | con attenzione]
+                    | do credito (alle(argomentazioni|lezioni|teorie|invettive)|ai(discorsi|teoremi|panegirici|monologhi)|agli(spiegoni|spiegoni)) di 
+                    | do credito a 
+                    | faccio affidamento su
+                    | leggo [volentieri | con (attenzione|interesse|piacere)]
+                    | mi fido [solo] di
+                    | non mi perdo  (un discorso|un tweet|un post|un podcast|un articolo) di 
+                    | ogni volta che (posso|mi capita) ascolto
+                    | tengo d'occhio 
+                    | sono un [convinto] sostenitore di
+                    ) 
+                    ; 
 
-      IlConcetto.Positivo e' Concetto.Positivo "e" Conclusione
-      |      
-      IlConcetto.Negativo e' Concetto.Negativo "e" Conclusione
-      |
-      Conclusione^":" IlConcetto.Positivo e' Concetto.Positivo 
-      |
-      Conclusione^":" IlConcetto.Negativo e' Concetto.Negativo 
+        SulSocial ::= (
+                        su (\facebook|facciabuco)
+                      | (su|sulla) \rai^(\play|(1|2|3|4|5|6|7|8|9))
+                      | su (\whats|\tik|\you|\twit|\snap)^(\app|\chat|\snap|\tak|\tok|\t^[r]^ap)
+                      | su 4chan
+                      | su (1|2|3|4|5|6|7|8|9)^chan
+                      | su 9gag
+                      | su \img^\flip
+                      | su \instagram 
+                      | su \know^\your^\meme
+                      | su \pinterest
+                      | su \reddit
+                      | su \telegram
+                      | su \tik^\tok
+                      | su \twitter
+                      | su \vk ["("^ il controverso social[dell'odio] russo^")"]
+                      | su \wikipedia
+                      | su \you^\tube
+                      | su qualsiasi device
+                      | sul [^(l'obsoleto)] feed rss
+                      | sul \podcast (di|della) \radio^(1|2|3|4|5|6|7|8|9|24) 
+                      | sul suo blog
+                      | sul telefonetto
+                      | sull'i^\phone [(\max|\plus|\deluxe|\pro|(1|2)^(1|2|3|4|5|6|7|8|9))]
+                      | sulla smart tv
+                      | sullo smartphone
+                      
+                    )
+                    ;
 
+        (* "Social" non deve essere preceduto da articolo *)
+        Social ::= (
+                        (\facebook|facciabuco)
+                      | (\whats|\tik|\you|\twit|\snap)^(\app|\chat|\tak|\tok|\tap)
+                      | 4chan
+                      | \instagram 
+                      | \pinterest
+                      | \rai^(\play|(1|2|3|4|5|6|7|8|9))
+                      | \reddit
+                      | \telegram
+                      | \tik^\tok
+                      | \twitter
+                      | \vk ["("^ il controverso social[dell'odio] russo^")"]
+                      | \you^\tube
+                      
+                    )
+                    ;                    
+
+        VistoChe ::= (
+                        (dato |dal momento | visto | ----poiche') che       
+                      )
+                      ;
+
+        (* "DiceCoseIntelligenti" verra' seguito da "al riguardo" *)
+        DiceCoseIntelligenti ::= (
+                        dice [spesso|sempre] cose (intelligenti|interessanti)
+                      | argomenta (con intelligenza|con proprieta' di (termini|linguaggio)| bene|in modo valido)
+                      | dice (la sua|come la pensa)
+                      | ha argomenti (validi|non banali|convincenti)
+                      | non (mente mai|racconta balle) 
+                      | non dice mai (banalita'|cose banali) 
+                      | non intorbida mai le acque
+                      | non rinnega le proprie (idee|convinzioni)
+                      | non ripete a pappagallo (le [solite]banalita'|i soliti luoghi comuni|quello che hanno gia' detto gli altri) 
+                      | non sbaglia mai un colpo
+                      | non tira fuori mai([le solite]banalita'|[i soliti]luoghi comuni) 
+                      | rifugge (le [solite]banalita'|i [soliti] luoghi comuni) 
+                      | sa (argomentare | giudicare)
+                      | sta alla larga (dalle [solite]banalita'|dai [soliti]luoghi comuni) 
+                      )
+                      ;
+
+        SulTema ::= (
+                         ++++SulConcetto.(Positivo|Negativo)
+                      |  (sul tema|sui temi) DelConcetto.(Positivo|Negativo)
+                      | sul legame tra (Concetto e Concetto).(Positivo|Negativo)       
+                      | SulConcetto.Negativo e le {conseguenze}{[nefaste]} per IlConcetto.Positivo 
+                      | SulConcetto.Negativo e le {ricadute}{[nefaste]} per IlConcetto.Positivo       
+                      | sulle connivenze tra (Concetto e Concetto).Negativo  
+                      )
+                      ;
+
+
+LaPersonaDaAscoltare ::= (
+                         la persona a cui dare retta
+                      |  chi DiceCoseIntelligenti [al riguardo|su questi temi]
+                      |  la persona che [al riguardo|su questi temi] DiceCoseIntelligenti   
+                      |  la persona (che sta dalla parte (giusta|della ragione)|esperta in questo campo)   
+                      )
+                      ;
+
+
+(* "MoltiSeLaPrendono" puo' essere seguito da "con" *)
+MoltiSeLaPrendono ::= (
+                        (molti|tanti|gli ignoranti|i minus habens|i noncompagni) (* NemiciIdeologici *)
+                        (se la prendono|si (infuriano|arrabbiano))
+                      | (la gente[qualunque]|la massa|il popol^(ino|o [bue]))(se la prende|s'infuria|bisticcia|s'accapiglia)
+                      )
+                      ;
+
+HoFruitoLInfoprodotto ::= 
+                      (
+                        ho letto l'ultimo(libro|post|articolo)
+                      | ho visto (l'ultimo (intervento televisivo|video)|l'ultima(diretta|\l^\i^\v^\e))   
+                      | SulSocial ho visto 
+                        (
+                            l'ultimo (intervento [televisivo]|video|balletto|dissing|spiegone|appello)
+                           |l'ultima(polemica|diretta|\l^\i^\v^\e|dichiarazione|provocazione)
+                        ) 
+                      )
+                      ;
+
+BattagliaCulturale ::= 
+                      (
+                        (battaglia|cortina fumogena|macchina del fango|lotta|campagna|operazione|manipolazione|appropriazione|discordia)(culturale|mediatica|propagandistica|comunicativa)
+                      | (polverone|scontro|conflitto|scandalismo|sensazionalismo)(culturale|mediatico|propagandistico|comunicativo)   
+                      )
+                      ;
+
+
+          {SeguoSempre Intellettuale} ^"," {VistoChe DiceCoseIntelligenti [SulTema]}
+
+        | vuoi sapere chi DiceCoseIntelligenti SulTema^"?"  \Intellettuale
+
+        | vuoi sapere chi (seguire|--------followare) SulSocial^"?"  \Intellettuale 
+          [^"," VistoChe DiceCoseIntelligenti [SulTema] ]
+
+        | SulTema SeguoSempre Intellettuale [^"," VistoChe DiceCoseIntelligenti]
+
+        | Concetto.(Positivo|Negativo)              
+            (^","Concetto.(Positivo|Negativo))+
+            (^","|-----(e come se non bastasse|per non farci mancare niente|tanto per gradire)) Concetto.(Positivo|Negativo) ^"?"
+            \ LaPersonaDaAscoltare e' Intellettuale
+
+        | MoltiSeLaPrendono con Intellettuale perche' (DiceCoseIntelligenti SulTema|creare un nemico e' alla base di ogni BattagliaCulturale)
+        | (Social e' il luogo migliore | Social e Social sono i luoghi migliori) dove trovare contenuti SulTema
+        | SulSocial seguo (Intellettuale|---Intellettuale e Intellettuale)^"," mentre [contemporaneamente] SulSocial seguo Intellettuale
+        |  [per qualche[incomprensibile|imperscrutabile]motivo] non so piu' se sono io a pensarla (esattamente come|allo stesso modo di|uguale uguale a) IntellettualeFisso o se [guardacaso] e' IntellettualeFisso a pensarla [proprio] come me
+        |  SulTema "("^ ma anche SulTema ^")" se ascolterai Intellettuale [per una qualche coincidenza] saprai anche [esattamente] come (la penso|la vedo|ragiono) io
+        |  (io e Intellettuale|Intellettuale ed io) la pensiamo allo stesso modo [su tutto| ^"."\ (indifferentemente|piu' o meno|direi|quasi) su tutto] [^"." \ piu' (passa il tempo|va avanti|vado avanti|passano [i mesi e] gli anni) e piu' sono persuaso (dalle sue frasi|dai suoi enunciati|dai suoi tormentoni|da cio' che dice|dai suoi discorsi|dai concetti che espone|dalle sue parole|dalle sue battaglie|dalle cose che ripete[sempre])]
+        | 
+          ( 
+              ( 
+                ((non so che darei per [poter seguire|vedere|seguire]) | (mi piacerebbe vedere un)) un [bel|appassion^(ato|ante)|istruttivo|interessante|infuocato]
+              ) 
+            dibattito tra Intellettuale e Intellettuale 
+            [(SulSocial [ oppure [^","perche' no ^"?" anche] SulSocial]|SulTema)] 
+          )   
+        | la penso come Intellettuale VirgolaConclusioneImprobabile
+        | (da quando|dacche') esiste Social metto like acritico a ogni (post|video|infoprodotto) di Intellettuale
+        | HoFruitoLInfoprodotto di Intellettuale e 
+        (ora|devo dire che|devo ammettere che|(per il|al) momento) 
+        (si batte meglio di|lotta piu' di|e' pari merito con|mi sembra al livello di|non sfigurerebbe in un dibattito con) Intellettuale
       )
       ;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Frase05 ::= \ 
@@ -241,6 +480,107 @@ Frase05 ::= \
       ;
 
 
+Frase04 ::= \ 
+      (
+
+      IlConcetto.Positivo e' Concetto.Positivo "e" Conclusione
+      |      
+      IlConcetto.Negativo e' Concetto.Negativo "e" Conclusione
+      |
+      Conclusione^":" IlConcetto.Positivo e' Concetto.Positivo 
+      |
+      Conclusione^":" IlConcetto.Negativo e' Concetto.Negativo 
+      |
+      (IlConcetto e' Concetto).(Positivo|Negativo) 
+
+      )
+      ;
+
+
+
+Frase03 ::= \ 
+      (
+
+      (* 1 - Permutazione con "cultura di" Concetto *)
+      (IlConcetto| ------la cultura DelConcetto).Negativo non e' Concetto.Positivo ^"," e' Concetto.Negativo
+      |
+
+      IlConcetto.Negativo non e' (Concetto| ------cultura DelConcetto).Positivo ^"," e' Concetto.Negativo
+      |
+
+      IlConcetto.Negativo non e' Concetto.Positivo ^"," e' (Concetto| ------cultura DelConcetto).Negativo
+      |
+
+      (* inversione Negativo Positivo *)
+      (IlConcetto| ------la cultura DelConcetto).Positivo non e' Concetto.Negativo ^"," e' Concetto.Positivo
+      |
+
+      IlConcetto.Positivo non e' (Concetto| ------cultura DelConcetto).Negativo ^"," e' Concetto.Positivo
+      |
+
+      IlConcetto.Positivo non e' Concetto.Negativo ^"," e' (Concetto| ------cultura DelConcetto).Positivo
+      |
+
+
+
+      (* 2 - Permutazione con "guerra a" Concetto*)
+
+      (la guerra AlConcetto).Positivo non e' Concetto.Positivo ^"," e' Concetto.Negativo
+      |
+      IlConcetto.Positivo non e' (guerra AlConcetto).Positivo ^"," e' Concetto.Positivo
+      |
+      IlConcetto.Negativo non e' Concetto.Positivo ^"," e' (guerra AlConcetto).Positivo
+      |
+
+      (la guerra AlConcetto).Negativo non e' Concetto.Negativo ^"," e' Concetto.Positivo
+      |
+      IlConcetto.Negativo non e' (guerra AlConcetto).Negativo ^"," e' Concetto.Negativo
+      |
+      IlConcetto.Positivo non e' Concetto.Negativo ^"," e' (guerra AlConcetto).Negativo
+      
+      )
+      ;
+
+
+
+Frase02 ::= \       
+      (
+      senza (Concetto| ------cultura DelConcetto).Positivo non c'e'
+        (   vero ConcettoNome.M.(IlI|LGli|--------------LoGli)
+          | vera ConcettoNome.F.(LLe|++++++++LaLe)
+         ).S.Positivo
+
+      | senza (Concetto non c'e' vera cultura DelConcetto).Positivo
+      | (IlConcetto e' alla base DelConcetto).Positivo
+
+      )
+      ;
+
+
+
+Frase01 ::= \       
+      (
+        Abolire ::=   (
+                        denunciare|distruggere|togliere di mezzo|dimenticarci[una volta per tutte]|mandare a casa|far fuori|eliminare|sgomberare|abolire|cancellare|marginalizzare|mettere ai margini|estromettere[dal consesso civile|dalla societa'|dal discorso pubblico]|ridicolizzare|sopprimere|delegittimare|sconfiggere
+                      ) 
+                      ; 
+
+        Sostenere ::= (
+                      realizzare[pienamente|finalmente|una volta per tutte]|legittimare|sdoganare|affermare|rendere possibile|supportare|concretizzare|reificare|far trionfare|far vincere|twittare [su \facebook]|-------far impazzare sui social|------far comparire sui giornali[della cosiddetta "Italia"]
+                      )
+                      ;
+
+        LUnicoModo ::= (
+                      l'unica (via|prospettiva[possibile]|possibilita'|speranza)|l'unico (modo|strumento(possibile|che abbiamo a disposizione))
+                      )
+                      ;
+
+      {Abolire IlConcetto.Negativo | Sostenere IlConcetto.Positivo  } 
+      e' 
+      {LUnicoModo per (Sostenere IlConcetto.Positivo | Abolire IlConcetto.Negativo)}
+
+      )
+      ;
 
 
 
@@ -290,6 +630,39 @@ IlConcetto ::=
 
 
 
+(* Articolo Determinativo + Concetto Singolare Maschile , dovrà essere specificato se Positivo o Negativo - usato in Frase07*)
+IlConcettoMaschile ::= 
+            (  
+               (Art ConcettoNome).M.(IlI|LGli|--------------LoGli)
+            ).S.Det
+            ;           
+
+(* Articolo Determinativo + Concetto Singolare Femminile , dovrà essere specificato se Positivo o Negativo  - usato in Frase07*)
+IlConcettoFemminile ::= 
+            (  
+                ( Art ConcettoNome ).F.(LLe|++++++++LaLe)
+            ).S.Det
+            ;           
+
+(* Articolo Determinativo + Concetto Singolare Maschile , dovrà essere specificato se Positivo o Negativo - usato in Frase07*)
+ConcettoMaschile ::= 
+            (  
+               (ConcettoNome).M.(IlI|LGli|--------------LoGli)
+            ).S.Det
+            ;           
+
+(* Articolo Determinativo + Concetto Singolare Femminile , dovrà essere specificato se Positivo o Negativo  - usato in Frase07*)
+ConcettoFemminile ::= 
+            (  
+                (ConcettoNome ).F.(LLe|++++++++LaLe)
+            ).S.Det
+            ;           
+
+
+
+
+
+
 
 (* CONCETTO CON PREPOSIZIONE ARTICOLATA )
 (* Per tutte le forme con prep articolata andrà specificato se Positivo o Negativo *)
@@ -314,10 +687,6 @@ ConcettoPrepArticolataDet ::=
             ;
 
 
-
-
-
-
 ConcettoNome ::= (
 
           Positivo:(
@@ -334,12 +703,14 @@ ConcettoNome ::= (
                     | ( S: animalismo         | P: animalismi         )
                     | ( S: antagonismo        | P: antagonismi        )
                     | ( S: antispecismo       | P: antispecismi       )
-                    | ( S: ascensore sociale  | P: ascensori sociali  )
                     | ( S: ateismo            | P: ateismi            )
                     | ( S: empowerment        | P: empowerment        )
                     | ( S: esproprio proletario   | P: espropri proletari   )
                     | ( S: europeismo         | P: europeismi         )
+                    | ( S: egalitarismo       | P: egalitarismi       )
+                    | ( S: egualitarismo      | P: egualitarismi      )
                     | ( S: illuminismo        | P: illuminismi        )
+                    | ( S: internazionalismo  | P: internazionalismi  )
                     | ( S: immigrazionismo    | P: immigrazionismi    )
                     )
 
@@ -353,6 +724,8 @@ ConcettoNome ::= (
                     | ( S: femminismo         | P: femminismi         )
                     | ( S: libero pensiero    | P: liberi pensieri    )
                     | ( S: matriarcato        | P: matriarcato        )
+                    | ( S: garantismo         | P: garantismi         )
+                    | ( S: comunismo          | P: comunismi         )
                     | ( S: meticciato         | P: meticciati         )
                     | ( S: mondialismo        | P: mondialismi        )
                     | ( S: monopattino elettrico       | P: monopattini elettrici        )
@@ -372,31 +745,33 @@ ConcettoNome ::= (
           |  F:(           (* CONCETTO POSITIVO FEMMINILE @CONCPF     @CONCFP     *)
 
                   LaLe:(   (* CONCETTO POSITIVO FEMMINILE @CONCPFLALE @CONCFPLALE *)
-                      ( S: liberta' d'espressione     | P: liberta' d'espressione  ) 
+                      (* liberta' *)  
+                      ( 
+                      S: liberta' (di pensiero | d'opinione | di coscienza | di parola | d'espressione | di stampa | d'informazione | d'associazione | di riunione | sindacale | di culto | religiosa |  d'azione | di movimento | individuale | personale)
+                      | P: liberta'  (di pensiero | d'opinione | di coscienza | di parola | d'espressione | di stampa | d'informazione | d'associazione | di riunione | sindacali | di culto | religiose |  d'azione | di movimento | individuali | personali)
+                      ) 
                     | ( S: [semplice]civilta'         | P: [semplici]civilta'        )
                     | ( S: \cultura queer             | P: culture queer           )
                     | ( S: \resistenza                | P: razionalita'            )
                     | ( S: \rivoluzione               | P: \rivoluzioni           )
                     | ( S: \teoria del \gender        | P: \teorie del \gender     )
+                    | ( S: \z^\t^\l                   | P: \z^\t^\l        )
+                    | ( S: city bike [elettrica]      | P: city bike [elettriche]        )
                     | ( S: complessita'               | P: complessita'        )
                     | ( S: democrazia                 | P: democrazie            )
-                    | ( S: farina di grillo           | P: farine di grillo        )
-                    | ( S: city bike [elettrica]      | P: city bike [elettriche]        )
-                    | ( S: diversita'                 | P: diversita'        )
                     | ( S: dittatura del proletariato | P: dittature del proletariato        )
+                    | ( S: diversita'                 | P: diversita'        )
+                    | ( S: farina di grillo           | P: farine di grillo        )
                     | ( S: goliardia                  | P: goliardie               )
-                    | ( S: legalizzazione dell^(a cannabis|e canne|e droghe leggere[e perche' no anche pesanti]) 
-                        | P: legalizzazioni dell^(a cannabis|e canne|e droghe leggere[e perche' no anche pesanti])            
-                      )
-                    | ( S: liberta' d'opinione        | P: liberta' d'opinione)
+                    | ( S: legalizzazione dell^(a cannabis|e canne|e droghe leggere[e perche' no anche pesanti]) | P: legalizzazioni dell^(a cannabis|e canne|e droghe leggere[e perche' no anche pesanti]) ) | ( S: liberta' d'opinione        | P: liberta' d'opinione)
                     | ( S: meritocrazia           | P: meritocrazie        )
+                    | ( S: militanza                  | P: militanze             )
                     | ( S: pillola del giorno dopo    | P: pillole del giorno dopo )
                     | ( S: profondita'           | P: profondita'        )
                     | ( S: razionalita'               | P: razionalita'            )
                     | ( S: riassegnazione di gender | P: riassegnazioni di gender            )
                     | ( S: satira                     | P: satire                  )
                     | ( S: scienza                    | P: scienze               )
-                    | ( S: militanza                  | P: militanze             )
                     | ( S: solidarieta'           | P: solidarieta'        )
                     | ( S: sostenibilita' ambientale | P: sostenibilita' ambientali )
                     | ( S: transizione di genere      | P: transizioni di genere     )
@@ -407,6 +782,8 @@ ConcettoNome ::= (
                     | ( S: evoluzione         | P: evoluzioni         )
                     | ( S: integrazione       | P: integrazioni       )
                     | ( S: accoglienza        | P: accoglienze       )
+                    | ( S: anarchia           | P: anarchie       )
+                    | ( S: autodeterminazione | P: autodeterminazioni       )
                     | ( S: intelligenza di quartiere  | P: le intelligenze di quartiere )
                     | ( S: osmosi sociale     | P: osmosi sociali     )
                     | ( S: auto (elettrica|a idrogeno|a olio di colza|ad acqua)     | P: auto (elettriche|a idrogeno|a olio di colza|ad acqua)     )
@@ -439,17 +816,17 @@ ConcettoNome ::= (
                     | ( S: antieuropeismo     | P: antieuropeismi     )
                     | ( S: arbitrio           | P: arbitrii           )
                     | ( S: autoritarismo      | P: autoritarismi      )
+                    | ( S: inquinamento       | P: inquinamenti       )
                     | ( S: egoismo            | P: egoismi            )
                     | ( S: integralismo       | P: integralismi       )
                     | ( S: odio               | P: insulti            )
-                    | ( S: oggettificazione (della (donna|femmina))   | P: insulti            )
                     | ( S: oltranzismo        | P: oltranzismi        )
                     )
 
                 |  IlI:(   (* CONCETTO NEGATIVO MASCHILE @CONCNMILI @CONCMNILI *)
                       ( S: [Prefisso^]fascismo  | P: [Prefisso^]fascismi           )
                     | ( S: (bitch|fat|kink)^"-"^shaming  | P: (bitch|fat|kink)^"-"^shaming )
-                    | ( S: [cyber]bullismo      | P: [cyber]bullismi               )
+                    | ( S: [cyber^"-"^]bullismo      | P: [cyber^"-"^]bullismi               )
                     | ( S: [Prefisso^]nazismo   | P: [Prefisso^]nazismo            )
                     | ( S: \capitalismo         | P: doxxing                       )
                     | ( S: berlusconismo        | P: berlusconismi                 )
@@ -462,20 +839,26 @@ ConcettoNome ::= (
                     | ( S: complottismo         | P: complottismi                  )
                     | ( S: creazionismo         | P: creazionismi                  )
                     | ( S: discorso d'odio      | P: discorsi d'odio               )
+                    | ( S: melonismo            | P: melonismi                     )
                     | ( S: doxxing              | P: doxxing                       )
                     | ( S: familismo amorale    | P: familismi amorali             )
                     | ( S: fideismo             | P: fideismi                      )
                     | ( S: fondamentalismo cattolico  | P: fondamentalismi cattolici )
                     | ( S: killeraggio mediatico| P: killereaggio mediatico        )
+                    | ( S: lavaggio del cervello| P: lavaggi del cervello          )
                     | ( S: linciaggio mediatico | P: linciaggio mediatico          )
                     | ( S: manspreading         | P: manspreading                  )
                     | ( S: monoteismo           | P: monoteismi                    )
                     | ( S: nazionalismo         | P: nazionalismi                  )
+                    | ( S: nichilismo           | P: nichilismi                    )
                     | ( S: patriarcato          | P: patriarcati                   )
+                    | ( S: populismo            | P: populismi                     )
                     | ( S: qualunquismo         | P: qualunquismi                  )
                     | ( S: razzismo [sistemico] | P: razzismi [sistemici]          )
                     | ( S: revenge porn         | P: revenge porn                  )
-                    | ( S: sea^"-"^lioning          | P: sea^"-"^lioning                   )
+                    | ( S: sea^"-"^lioning      | P: sea^"-"^lioning               )
+                    | ( S: secessionismo        | P: secessionismi                 )
+                    | ( S: separatismo          | P: separatismi                   )
                     | ( S: settarismo           | P: settarismi                    )
                     | ( S: sovranismo           | P: sovranismi                    )
                     | ( S: totalitarismo        | P: totalitarismi                 )
@@ -492,46 +875,52 @@ ConcettoNome ::= (
 
                       (* AGGETTIVO NEG. + DIFESA DEGLI INTERESSI NAZIONALI *)
                     | ( 
-                        S: (meschina|egoistica|antistorica|medievale|cieca|assurda|irrazionale) difesa degli interessi nazionali    
-                      | P: (meschine|egoistiche|antistoriche|medievali|cieche|assurde|irrazionali) difese degli interessi nazionali    
+                        S: (meschina|egoistica|medievale|cieca) difesa degli interessi nazionali    
+                      | P: (meschine|egoistiche|medievali|cieche) difese degli interessi nazionali    
                       )
                     | ( S: \repressione       | P: repressioni        )
-                    | ( S: violenza carceraria| P: violenze carcerarie)
                     | ( S: barbarie           | P: barbarie           )
                     | ( S: cattiveria         | P: cattiveria         )
                     | ( S: censura            | P: censure            )
+                    | ( S: demagogia          | P: demagogie )
                     | ( S: diffamazione       | P: diffamazioni       )
                     | ( S: faziosita'         | P: faziosita'         )
                     | ( S: macchina del fango | P: macchine del fango )
                     | ( S: mafia              | P: mafie              )
-                    | ( S: mascolinita' tossica | P: mascolinita' tossiche       )
+                    | ( S: mascolinita' tossica| P: mascolinita' tossiche)
                     | ( S: normalizzazione    | P: normalizzazioni    )
                     | ( S: religione          | P: religioni          )
                     | ( S: sinofobia          | P: sinofobie          )
                     | ( S: stupidita'         | P: stupidita'         )
+                    | ( S: subcultura         | P: subculture         )
+                    | ( S: sottocultura       | P: sottoculture       )
                     | ( S: superficialita'    | P: superficialita'    )
                     | ( S: tifoseria          | P: tifoseria          )
                     | ( S: transfobia         | P: transfobie         )
+                    | ( S: violenza carceraria| P: violenze carcerarie)
                     | ( S: xenofobia          | P: xenofobia          )
                     )
 
                 |  LLe:(   (* CONCETTO NEGATIVO FEMMINILE @CONCNFLLE @CONCFNLLE *)
                       ( S: ignavia            | P: ignavia            )
+                    | ( S: autocrazia         | P: autocrazie         )
                     | ( S: esclusione sociale | P: esclusioni sociali )
                     | ( S: eugenetica         | P: eugenetiche        )
+                    | ( S: evasione fiscale   | P: evasioni fiscali   )
                     | ( S: ignoranza          | P: ignoranze          )
                     | ( S: illazione          | P: illazioni          )
                     | ( S: illegalita'        | P: illegalita'        )
                     | ( S: impotenza          | P: impotenze          )
-                    | ( S: evasione fiscale   | P: evasioni fiscali   )
                     | ( S: incapacita'        | P: incapacita'        )
-                    | ( S: indifferenza       | P: indifferenza       )
+                    | ( S: indifferenza       | P: indifferenze       )
+                    | ( S: oggettificazione (della (donna|femmina))   | P: oggettificazioni (della (donna|femmina))            )
                     | ( S: ingiuria           | P: ingiurie           )
                     | ( S: ingiustizia[sociale] | P: ingiustizie[sociali])
                     | ( S: intolleranza       | P: intolleranze       )
                     | ( S: islamofobia        | P: islamofobie        )
                     | ( S: omofobia           | P: omofobie           )
                     | ( S: omotransfobia      | P: omotransfobie      )
+                    | (S: (antistorica|assurda|irrazionale) difesa degli interessi nazionali | P: (antistoriche|assurde|irrazionali) difese degli interessi nazionali) 
 
                     )
                 )
@@ -564,16 +953,29 @@ VirgolaConclusioneImprobabile ::=
 
 Conclusione ::= 
           (
-          PerCapirlo ::= per (capirlo[una volta per (tutte|sempre)]|afferrare il concetto|farsene una ragione|impararlo|metterselo in testa|metterselo nella zucca|farne un proprio bagaglio culturale|introiettarlo|farsene un'idea|negare il contrario);          
+          PerCapirlo ::= per 
+            (
+            capirlo[una volta per (tutte|sempre)]
+            | afferrare (((il|questo) concetto)|l'idea)
+            | farsene (una ragione|un'idea)
+            | impararlo
+            | (metterselo|ficcarselo) (in testa|nella zucca)
+            | metterselo in mente
+            | pensarla come (ogni persona (sana di mente|di buonsenso|ragionevole))
+            | farne un proprio bagaglio culturale
+            | introiettarlo
+            | negare il contrario
+            );          
           
             non c'e' altro ( da (dire|obiettare)|di cui discutere)
           | non c'e' storia
-          | l'ho sentito (al bar|al \circolo \arci|durante la manifestazione[di piazza]|in barca con amici|a cena da amici|in vacanza[a \dubai])
+          | l'ho sentito (al bar|al \circolo \arci|durante la manifestazione[di piazza]|in barca da amici|a cena da amici|in vacanza[a \dubai])
           | va (detto|ribadito|comunicato|fatto girare|inoltrato|twittato|postato|instagrammato) a tutte e tutti
-          | bisogna avere il coraggio di (dirlo[a tutti|senza se e senza ma|senza (paura|ambiguita'|compromessi)]|essere chiari[al riguardo]|farlo notare|affermarlo con (forza|chiarezza|lucidita'|precisione))
+          | bisogna avere il coraggio di (dirlo[a [tutte e]tutti|senza se e senza ma|senza (paura|ambiguita'|compromessi)]|essere chiari[al riguardo]|farlo notare|affermarlo con (forza|chiarezza|lucidita'|precisione))
           | non c'e' che dire [(signori|signore e signori)]
           | non c'e' molto da aggiungere
           | tocca ribadire l'ovvio
+          | puoi giurarci
           | non (serve|e' necessaria) una [geniale] vignetta (di \vauro | di \mauro \biani | del \manifesto | del \corriere della \sera) PerCapirlo
           | che vada di traverso a chi ci vuol male
           | chi non e' d'accordo puo' anche (togliermi l'amicizia|cancellarmi dai like|cambiare strada|sparire per sempre|tornare nelle fogne|evitarmi|smettere di (parlarmi|discutere[con me]|frequentarmi|infastidirmi|assillarmi|menarmela))
@@ -583,7 +985,7 @@ Conclusione ::=
           | da parte mia sosterro' sempre IlConcetto.Positivo
           | da parte mia combattero' sempre IlConcetto.Negativo
           | mi sembra giusto [che sia|che le cose (vadano|stiano)] cosi'
-          | l'ho (letto|imparato) sull'ultimo articolo di CognomeEONomeIntellettuale
+          | l'ho (letto|imparato) nell'ultimo articolo di Intellettuale
           | chi (lo nega|lo omette) o e' (un falso|stupido|fuori dal mondo|un retrogrado) o e' (un finto tonto|in malafede|in contraddizione|[intellettualmente]disonesto)
           | chi ((sostiene|afferma) il contrario|non e' d'accordo|la pensa(diversamente|in un altro modo)|non la pensa(cosi'|in questo modo)) 
                 (e' un noncompagno|
@@ -591,15 +993,15 @@ Conclusione ::=
                   [della vita|di come va il mondo|di come vanno le cose|dell'\italia|di questo paese|di questa societa'|della societa' civile|della temperie sociale[in cui ci troviamo]|della deriva antropologica in corso])
           | lo capirebbe
             (chiunque [tranne un (lettore (di \libero|della \verita')|servo(dei padroni|del \capitale|dei borghesi|dei fasci[sti])|minus habens|analfabeta (funzionale|emotivo)|[conclamato]noncompagno)]|anche un bambino)
-          | non serve un abbonamento (a \repubblica| a \internazionale | alla \stampa | all'\espresso) per capirlo
+          | non serve un abbonamento (a \repubblica| a \internazionale | alla \stampa | all'^\espresso) per capirlo
           (* Sezione intellettuali *)
           | non serve 
-            ( CognomeEONomeIntellettuale|
+            ( Intellettuale|
             un [paludato|affermato|famoso]editorialista|un genio|uno scienziato|avere 
             (tre|quattro|cinque|sei|venti) lauree|un ((ospite|giornalista|interventista) televisivo)|un influencer[con almeno (centomila|mille|(sett|ott|nov)^anta^(due|tre|quattro|nove)^[mila]) like]|-----un'influencer [-----socialmente impegnata] [[armata di telefonetto]mentre si fa un selfie[-----molto sexy|hot|che fara' molto parlare]])
                   PerCapirlo
-          | non deve certo (sottoscriverlo|scriverci(un articolo|un editoriale|un'articolessa|un libro|un instant book|un tweet|un post)) CognomeEONomeIntellettuale
-          | l'ha detto [anche] CognomeEONomeIntellettuale ieri sera (in tv|sullo schermo del mio (telefonetto|smartphone|device|tablet)|sulla 7|da \floris|da \formigli|dalla \gruber|su \rai3)
+          | non deve certo (sottoscriverlo|scriverci(un articolo|un editoriale|un'articolessa|un libro|un instant book|un tweet|un post)) Intellettuale
+          | l'ha detto [anche] Intellettuale ieri sera (in tv|sullo schermo del mio (telefonetto|smartphone|device|tablet)|sulla 7|da \floris|da \formigli|dalla \gruber|su \rai3)
 
       )   
       ; 
@@ -615,39 +1017,81 @@ Conclusione ::=
 
 
 
-(* COGNOME E/O NOME INTELLETTUALE DI GRIDO *)
+(* COGNOME E/O NOME INTELLETTUALE DI GRIDO vivente *)
 
-CognomeEONomeIntellettuale ::= 
-            \umberto \eco
-      |     (\chiara|la) \ferragni
+IntellettualeFisso := Intellettuale
+                   ;
+
+IntellettualeFisso2 := Intellettuale
+                   ;
+
+Intellettuale ::= 
+            \chiara \ferragni
+      |     (\diego \bianchi [detto \zoro]| \zoro)
       |     (\fedez| \fed^\ex) 
-      |     (\lucia|la) \annunziata
-      |     (\michela|la) \murgia
+      |     \lucia \annunziata
+      |     \michela \murgia
+      |     [\alessandro] \barbero
+      |     [\alessandro] \baricco
+      |     [\andrea] \scanzi
+      |     [\angelo]  \panebianco
+      |     [\antonio] \scurati
       |     [\corrado] \augias 
       |     [\corrado] \formigli
-      |     [\eugenio] \scalfari
+      |     [\david] \parenzo
       |     [\fabio] \fazio 
       |     [\gianrico] \carofiglio
+      |     [\giovanni] \floris
       |     [\massimo] \gramellini
       |     [\massimo] \recalcati 
+      |     [\piergiorgio] \odifreddi
       |     [\umberto] \galimberti
-      |     \adriano \sofri
+      |     \adriano \sof^[f]^ri
+      |     \chef \rublo 
+      |     \renzo \toso 
+      |     \emilia \molla 
+      |     \(c|k|ch)^at^(i|y|j)^a \(laponte|l'aborre|daporre|decorre|melchiorre|soccorre) 
       |     \concita \de (\gregorio | \gregori "(cantautrice)")
+      |     \dacia \maraini
       |     \dietlinde \gruber [detta \lilli]
+      |     \erri \de \luca 
       |     \ezio \mauro
+      |     \francesco \merlo 
+      |     \gad \lerner
+      |     \carola \rackete
+      |     \gianni \vattimo
+      |     \giulio \sapelli
       |     \ilvo \diamanti
       |     \luca \sofri
-      |     \marco \damilano
+      |     \makkox
+      |     \marco \damilano [++_|o \dadove^\je\^pare]
+      |     \saverio (\tommasi|---\tomasi di \lampedusa) 
+      |     \myrta [\maga] \merlino
+      |     \mario \calabresi
+      |     \mariolina \sattanino
       |     \massimo \cacciari
       |     \massimo \giannini
-      |     \mauro \biani
+      |     \(m|----v)^auro \biani
       |     \michele \serra
+      |     \selvaggia \lucarelli
       |     \moni \ovadia
+      |     (\nanni|---\nano) \moretti
       |     \paola \egonu
-      |     \roberto \saviano
+      |     \paolo \pagliaro
+      |     \furio \colombo
+      |     \enrico \ment^(a|---i)^na
+      |     \(ro|----nor)^berto \saviano
       |     \rula \jebreal
+      |     [\michele] \santoro
+      |     \sandro \veronesi
+      |     \alessandro \de \angelis
       |     \stefano \massini
+      |     \stefano \zurlo
+      |     \tomaso \montanari
+      |     \toni (\negri|\n^"-"^parola) 
       |     \tullio \de \mauro 
+      |     \vauro [\senesi]
+      |     \zero^(calcare|----calcagno)
       ;
 
 
